@@ -1,0 +1,15 @@
+<h1>JAB INDEX PAGE</h1>
+
+<div>
+
+<% if @jabs.length > 0 %>
+<% @jabs.each do |jab| %>
+
+<h4><%= jab.title%></h4>
+<p>subject: <%= jab.subject%></p>
+<p><%= jab.content%></p>
+<% end %>
+<% else %>
+<h5> You have been jabbed!</h5>
+<%end%>
+</div>
