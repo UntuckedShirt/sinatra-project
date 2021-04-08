@@ -1,4 +1,4 @@
-<h1>JAB INDEX PAGE</h1>
+<h1>JABS THROWN</h1>
 
 <div>
 
@@ -7,7 +7,9 @@
 
 <h4><%= jab.title%></h4>
 <p>subject: <%= jab.subject%></p>
+
 <p><%= jab.content%></p>
+<a href="/jabs/<%= jab.id %>">show</a>
 <% end %>
 <% else %>
 <h5> You have been jabbed!</h5>

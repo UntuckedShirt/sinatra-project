@@ -1,4 +1,4 @@
-<h1>EDIT JAB PAGE</h1>
+<h1>EDIT YOUR JAB</h1>
 
 
 <form action="/jabs" <%= @jab.id%> method="POST">
@@ -9,7 +9,10 @@ value="<%= @jab.title%>" /></p>
 <p>subject: <input type="text" name="jabs[subject]" 
 value="<%= @jab.subject%>" /></p>
 <p>content: <input type="text" name="jabs[content]" 
+
 value="<%= @jab.content%>" /></p>
+
+
 
 <input type="submit" value="Create my jab plz">
 </form>

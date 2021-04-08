@@ -20,18 +20,18 @@ end
     #create
     post "/jabs" do
         ##validate params
-        current_user.jab.build(params[:posts])
+    
 
         ## for your pro
-        if  !logged_in params[:title] == "" || params[:subject] == "" ||
+        if  !logged_in? && params[:title] == "" || params[:subject] == "" ||
         params[:content] == ""
         redirect to "/jabs/new"
         else
-            @jab = Jab.new(params[:jabs])
+            @jab = current_user.jabs.build(params[:jabs])
+            
             ## verify no SQL injection
             if @jab.save
-                @jab.user = current_user
-                current_user.jabs << @jab 
+                
                 redirect to "/jabs/#{@jab.id}"
             else
                 redirect to "/jabs/new"
@@ -52,14 +52,14 @@ end
     #edit
     get "/jabs/:id/edit" do
         @jab = Jab.find_by_id(params[:id])
-        if logged_in? && @jab.user == current_user
+        if !logged_in? && @jab.user == current_user
             if @jab
         erb :"jabs/edit"
             else
                 redirect to "/jabs"
          end
     else
-        redirecty to "/sign_up"
+        redirect to "/sign_up"
     end
 end
 
@@ -70,7 +70,7 @@ end
             redirect to "/jabs/#{params[:id]}/edit"
         else
             @jab = Jab.find_by_id(params[:id])
-            if @jab && @jab_user == current_user && @jab.update(params[:posts])
+            if @jab && @jab_user == current_user && @jab.update(params[:jabs])
                 redirect to "/jabs/#{@jab.id}"
             else
                 redirect to "/jabs/#{params[:id]}/edit"

@@ -1,4 +1,6 @@
-<h1>SHOW JAB PAGE</h1>
+<h1>SHOW ME YOUR BEST JAB</h1>
+
+
 
 <div>
 <h2><%=@jab.title%><h2>
@@ -14,12 +16,13 @@ Content: <%= @jab.content%>
 </div>
 
 <br/>
-<%= if @jab.user == current_user %>
-<a href="/jabs/<%= @jab.id%"></edit"> EDIT POST</a>
+<% if @jab.user == current_user %>
+
+<a href="/jabs/<%= @jab.id%></edit"> EDIT POST</a>
 <br/>
 <br/>
 <br/>
-<form> method="POST" action="/jabs/<%= @jab.id %>/
+<form method="POST" action="/jabs/<%= @jab.id %>/
 delete">
 
 <input type="hidden" name="_method" value="DELETE">
