@@ -52,27 +52,34 @@ end
     #edit
     get "/jabs/:id/edit" do
         @jab = Jab.find_by_id(params[:id])
-        if !logged_in? && @jab.user == current_user
+        if logged_in? && @jab.user == current_user
             if @jab
         erb :"jabs/edit"
+        
             else
+                
                 redirect to "/jabs"
+                
          end
     else
-        redirect to "/sign_up"
+
+        redirect to "/jabs"
+        
     end
 end
 
     #update
     patch "/jabs/:id" do
-        if !logged_in? params[title] == "" || params[:subject] == "" ||
-            params[:content] == ""
+        if !logged_in? && params[:jabs][:title] == "" || params[:jabs][:subject] == "" ||
+            params[:jabs][:content] == ""
+            
             redirect to "/jabs/#{params[:id]}/edit"
         else
             @jab = Jab.find_by_id(params[:id])
-            if @jab && @jab_user == current_user && @jab.update(params[:jabs])
+            if @jab && @jab.user == current_user && @jab.update(params[:jabs])
                 redirect to "/jabs/#{@jab.id}"
             else
+                
                 redirect to "/jabs/#{params[:id]}/edit"
             end
         end
