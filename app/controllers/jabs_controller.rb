@@ -4,8 +4,8 @@ class JabsController < ApplicationController
     #index
     get "/jabs" do
         
-        @jabs = Jab.all
-        @jab = Jab.first params[:id]
+        # @jabs = Jab.all
+        # @jab = Jab.first params[:id]
         # if !logged_in?
         #binding.pry
         @jabs = current_user.jabs

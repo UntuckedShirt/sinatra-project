@@ -26,9 +26,9 @@ class SessionsController < ApplicationController
     # end
     # end
 
-        @user = User.find_by(email: params[:email])
-        if @user && @user.authenicate(params[user][:password])
-            session[:user_id] = @user.user_id
+        @user = User.find_by(email: params[:user][:email])
+        if @user && @user.authenticate(params[:user][:password])
+            session[:user_id] = @user.id
             redirect to "/jabs"
         else
             redirect to "/jabs"
