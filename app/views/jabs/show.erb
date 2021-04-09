@@ -22,10 +22,13 @@ Content: <%= @jab.content%>
 <br/>
 <br/>
 <br/>
-<form method="POST" action="/jabs/<%= @jab.id %>/
-delete">
+
+
+<form method="POST" action="/jabs/<%= @jab.id%>/delete">
 
 <input type="hidden" name="_method" value="DELETE">
+ 
 <input type="submit" value="Delete this jab!">
+
 </form>
 <% end %>

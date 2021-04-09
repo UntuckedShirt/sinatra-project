@@ -86,12 +86,14 @@ end
 end
 
     #delete
-delete "/jabs/:id" do
+delete "/jabs/:id/delete" do
     @jab = Jab.find_by_id(params[:id])
     if @jab && @jab.user == current_user
         @jab.delete
+       
     end
     redirect to "/jabs"
+    
 end
 end
 # end
