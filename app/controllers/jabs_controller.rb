@@ -5,7 +5,7 @@ class JabsController < ApplicationController
     get "/jabs" do
         
         # @jabs = Jab.all
-        # @jab = Jab.first params[:id]
+        @jab = Jab.first params[:id]
         # if !logged_in?
         #binding.pry
         @jabs = current_user.jabs
