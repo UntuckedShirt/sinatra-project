@@ -1,7 +1,6 @@
 <h1>SHOW ME YOUR BEST JAB</h1>
 
 
-
 <div>
 <h2><%=@jab.title%><h2>
     <ul>
@@ -16,7 +15,7 @@ Content: <%= @jab.content%>
 </div>
 
 <br/>
-<% if @jab.user == current_user %>
+
 
 <a href="/jabs/<%= @jab.id%></edit"> EDIT POST</a>
 <br/>
@@ -31,4 +30,3 @@ Content: <%= @jab.content%>
 <input type="submit" value="Delete this jab!">
 
 </form>
-<% end %>

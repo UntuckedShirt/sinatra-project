@@ -16,6 +16,15 @@
   <body>
     <div class="wrapper">
 
+<% if current_user %>
+<%#my issue want ot create tab that goes back to my index page%>
+<a href="/jabs"> JAB INDEX</a>
+<a href="/jabs/new"> NEW JAB</a>
+<a href="/logout"> LOGOUT</a>
+<br/> 
+<br/>
+<br/>
+<%end%>
         <%= yield %>
 
       <footer class="branding">

@@ -19,13 +19,9 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-#  get "/users" do
-#     erb :users
-#   end
 
-#   get "/posts" do
-#     erb :jabs
-#   end
+
+
 
 
   helpers do
@@ -37,6 +33,6 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
-end
+    end
 end
 

@@ -5,16 +5,16 @@ class JabsController < ApplicationController
     get "/jabs" do
         
         # @jabs = Jab.all
-        @jab = Jab.first params[:id]
+        #@jab = Jab.first params[:id]
         # if !logged_in?
         #binding.pry
         @jabs = current_user.jabs
-        erb :"jabs/index"   
+        erb :"/jabs/index"   
     end
 
     #new
     get "/jabs/new" do
-        erb :"jabs/new"
+        erb :"/jabs/new"
 end
 
     #create
@@ -37,7 +37,7 @@ end
                 redirect to "/jabs/new"
             end   
         end
-end
+    end
 
     #show
     get "/jabs/:id" do
@@ -47,14 +47,15 @@ end
         else
             redirect to "/jabs"
         end
-end
+    end
 
     #edit
     get "/jabs/:id/edit" do
         @jab = Jab.find_by_id(params[:id])
         if logged_in? && @jab.user == current_user
-            if @jab
-        erb :"jabs/edit"
+            if @jab = Jab.find_by_id(params[:id])
+                @user = User.find(session[:user_id])
+        erb :"/jabs/edit"
         
             else
                 
