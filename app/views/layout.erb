@@ -17,6 +17,7 @@
     <div class="wrapper">
 
 <% if current_user %>
+<div align = "right"><p>Challenger <b><%= @current_user.username%></b>!</p></div>
 <%#my issue want ot create tab that goes back to my index page%>
 <a href="/jabs"> JAB INDEX</a>
 <a href="/jabs/new"> NEW JAB</a>
