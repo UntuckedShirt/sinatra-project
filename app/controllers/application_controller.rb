@@ -19,7 +19,12 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-
+# #testing flash
+#   get '/' do
+#     flash[:notice] = "Hooray, Flash is working!"
+#     erb :index
+#   end
+# #testing flash
 
 
 

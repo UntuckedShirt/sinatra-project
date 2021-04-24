@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
 
-   
-   
+
     get "/sign_up" do
     
         if !logged_in?
         erb :"/users/new"
     end
+
 
 
         #testing errors
@@ -20,15 +20,30 @@ end
     post "/sign_up" do
 
 if !logged_in?
-    if params[:user][:password] == params[:user][:password_confirmation]
+    if params[:user][:password] == params[:user][:password_confirmation] &&
         params[:user][:email] && params[:user][:username]
+        
         @user = User.new(params[:user])
-        #binding.pry
+
+        
+        
+        # if @user
+        #     redirect to "/login"
+        # else
+        #     @user = User.new(params[:user])
+        # #     @user = User.create!(:username => params[:username], :email => params[:email], :password => 
+        # #         params[:password], :user => params[:user])
+        # #                      session[:user_id] = @user.id
+        # #                      redirect to "/sign_up"
+        
+        # end
+
+
         if @user.save
             session[:user_id] = @user.id
             redirect to "/jabs"
         else
-            redirect to "/sign_up"
+            redirect to "/login"
         end
     else
         redirect to "/sign_up"
